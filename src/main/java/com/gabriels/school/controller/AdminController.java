@@ -34,8 +34,8 @@ public class AdminController {
         return modelAndView;
     }
 
-    @RequestMapping(value="{/addNewClass}", method= RequestMethod.POST)
-    public ModelAndView addNewClass(@Validated @ModelAttribute("eazyClass") EazyClass eazyClass){
+    @RequestMapping(value={"/addNewClass"}, method= RequestMethod.POST)
+    public ModelAndView addNewClass(@ModelAttribute("eazyClass") EazyClass eazyClass){
         eazyClassRepository.save(eazyClass);
         return new ModelAndView("redirect:/admin/displayClasses");
     }
@@ -50,8 +50,14 @@ public class AdminController {
                         personRepository.save(person);
                     }
                 });
-        deleteObject.ifPresent((value)->eazyClassRepository.delete(value));
+        deleteObject.ifPresent((value)->eazyClassRepository.deleteById(id));
         return new ModelAndView("redirect:/admin/displayClasses");
+    }
+
+    @RequestMapping(value={"/displayStudents"}, method = RequestMethod.GET)
+    public ModelAndView displayStudents(Model model, @RequestParam int classId){
+        ModelAndView modelAndView=new ModelAndView("students.html");
+        return modelAndView;
     }
 
 }
