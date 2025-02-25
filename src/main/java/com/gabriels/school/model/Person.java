@@ -5,9 +5,7 @@ import com.gabriels.school.annotation.PasswordValidator;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name="person")
 @Data

@@ -1,18 +1,14 @@
 package com.gabriels.school.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name="class")
 public class EazyClass extends BaseEntity {
